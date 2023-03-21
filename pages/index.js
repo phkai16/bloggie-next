@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import axios from "axios";
 
 export default function Home({ categoryList, articleList }) {
+  console.log({ categoryList, articleList });
   return (
     <div className={styles.container}>
       <Head>
@@ -21,6 +22,7 @@ export default function Home({ categoryList, articleList }) {
 export const getStaticProps = async (ctx) => {
   const cat = await axios.get(`${process.env.BASE_URL}/api/categories`);
   const articles = await axios.get(`${process.env.BASE_URL}/api/articles`);
+  console.log(cat, articles);
 
   return {
     props: {

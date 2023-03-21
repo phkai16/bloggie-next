@@ -20,7 +20,9 @@ const TabsGroup = ({ categoryList, articleList }) => {
               >
                 <CardList
                   listArticles={articleList.filter((i) =>
-                    i.categories.includes(item.name)
+                    i.categories
+                      .map((cat) => cat.toLowerCase())
+                      .includes(item.name.toLowerCase())
                   )}
                 />
               </Tabs.Item>
